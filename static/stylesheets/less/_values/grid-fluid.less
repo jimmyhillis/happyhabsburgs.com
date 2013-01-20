@@ -1,0 +1,106 @@
+//================
+//A fluid grid mixin
+//==================
+
+/*
+
+    max-width ..... = mwth  (max pixel width of container)
+    default-context = d-col (default number of columns)
+    context ....... = c-col (if nesting, column count of container)
+    column  ....... = t-col (target column count)
+    gutter  ....... = gtr   (gutter)
+
+    width = 100 / d-col * t-col
+    gutterno = gtr * (col -1)
+
+    240 is what percent of 400?
+    240 ÷ 400 =.60 = 60%
+
+*/
+
+//Set defaults
+@mwth  : 1000;
+@d-col : 12;
+@gtr   : 2;
+
+//Increase grid width for nested columns
+@gn1  : @gtr + 1;
+@gn2  : @gtr + 2;
+@gn3  : @gtr + 3;
+
+#grid{
+
+    .run( @t-col:@d-col, @c-col:@d-col, @gtr:@gtr ){
+
+        @gtrno:@gtr * (@c-col - 1);
+        @width:100 - @gtrno;
+
+        float:left;
+        width:(@width / @c-col) * @t-col + (@gtr * @t-col - @gtr)  + 0%;
+        margin-right:@gtr + 0%;
+
+    }
+
+	.dist( @t-col:@d-col, @c-col:@d-col, @gtr:@gtr ){
+
+		@col:(100/@c-col * @t-col) - (@gtr * 2);
+
+        float:left;
+		width:@col + 0%;
+		margin-right:@gtr + 0%;
+		margin-left:@gtr + 0%;
+
+	}
+
+    .nude( @t-col:@d-col, @c-col:@d-col){
+
+        @col:(100/@c-col * @t-col);
+
+        width:@col + 0%;
+
+    }
+}
+
+.grid-container{
+    max-width:1000px;
+    width:90%;
+    margin:50px auto;
+
+    div{
+        height:600px;
+    }
+}
+    .leftcol{
+        #grid > .run(4);
+    }
+    .rightcol{
+        #grid > .run(8);
+        margin-right:0;
+    }
+        .rcol-left{
+            #grid > .run(7,10,@gn1);
+        }
+            .block1{
+                #grid > .run(2,7,@gn2);
+            }
+            .block2{
+                #grid > .run(5,7,@gn2);
+                margin-right:0;
+            }
+        .rcol-right{
+            #grid > .run(3,10,@gn1);
+            margin-right:0;
+        }
+
+        ul{
+            margin:0 !important;
+            padding:0 !important;
+            list-style:none;
+
+            li{
+                display:block;
+                height:40px;
+                #grid > .dist(6);
+                background:@col-recessive;
+            }
+        }
