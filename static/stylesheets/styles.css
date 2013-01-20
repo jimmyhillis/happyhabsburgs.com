@@ -581,6 +581,24 @@ body {
     margin: 0 auto;
     color: #ffffff;
   }
+  .triangle {
+    display: block;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-color: #24c0eb transparent transparent transparent;
+  }
+  .topleft {
+    top: 0;
+    left: 0;
+    border-width: 50px 50px 0 0;
+  }
+  .topright {
+    top: 0;
+    right: 0;
+    border-width: 50px 0 0 50px;
+  }
   .page-title {
     text-align: center;
     margin-bottom: 40px;

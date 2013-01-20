@@ -14,7 +14,6 @@
 		margin:0;
         background:fixed;
         #gradient.vertical(@startColor: #777, @endColor: #aaa);
-        // border-top:solid 5px darken(@babyblue, 40);
 	}
 
     .wrapper{
@@ -22,8 +21,27 @@
         max-width:500px;
         padding:2em 0;
         margin:0 auto;
-        // background:@white;
         color:@white;
+    }
+
+    .triangle{
+        display:block;
+        position:absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+
+        border-color: @babyblue transparent transparent transparent;
+    }
+    .topleft{
+        top:0;
+        left:0;
+        border-width: 50px 50px 0 0;
+    }
+    .topright{
+        top:0;
+        right:0;
+        border-width: 50px 0 0 50px;
     }
 
     .page-title{
@@ -32,12 +50,7 @@
         text-transform: uppercase;
     }
         .title{
-            // font-size:6em;
             margin-bottom:0.25em;
-            // border-top:solid 10px @white;
-            // border-bottom:solid 10px @babyblue;
-            // padding:10px 0;
-            // box-shadow:0px 1px 0px darken(@babyblue, 40);
         }
         .subtitle{
             font-size:.9em;
