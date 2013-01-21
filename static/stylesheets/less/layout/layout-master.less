@@ -8,12 +8,12 @@
 //===
 
     html{
-        // border-top:solid 5px @babyblue;
+        background:fixed;
+        border:solid 20px #fff;
+        background:#ccc;
     }
 	body{
 		margin:0;
-        background:fixed;
-        #gradient.vertical(@startColor: #777, @endColor: #aaa);
 	}
 
     .wrapper{
@@ -26,22 +26,21 @@
 
     .triangle{
         display:block;
-        position:absolute;
+        position:fixed;
         width: 0px;
         height: 0px;
         border-style: solid;
-
         border-color: @babyblue transparent transparent transparent;
     }
     .topleft{
         top:0;
         left:0;
-        border-width: 50px 50px 0 0;
+        border-width: 100px 100px 0 0;
     }
     .topright{
         top:0;
         right:0;
-        border-width: 50px 0 0 50px;
+        border-width: 100px 0 0 100px;
     }
 
     .page-title{
@@ -66,3 +65,22 @@
     .page-body{
         text-align:center;
     }
+
+        .record{
+            width:100%;
+            display:block;
+            margin-bottom:1em;
+            .artwork{
+                width:50%;
+                float:left;
+                margin:0;
+                padding:0;
+            }
+            .tracklist{
+                width:40%;
+                float:left;
+                text-align:left;
+                margin-left:10%;
+                padding:0;
+            }
+        }
